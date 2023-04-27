@@ -1,7 +1,25 @@
-const net = require("net");
-const connect  = require("./client");
-console.log("Connecting ...");
+const { connect } = require('./client');
+const { setupInput } = require('./input.js');
+
+const connection = connect();
+
+console.log('Connecting ...');
+
+setupInput(connection);
+
+module.exports = { connect };
 
 
-connect();
+
+
+
+
+
+
+
+
+
+
+
+
 
