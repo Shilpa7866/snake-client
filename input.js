@@ -1,3 +1,5 @@
+const { UPKEY, LEFTKEY, DOWNKEY, RIGHTKEY } = require('./constants.js');
+
 let connection;
 
 const setupInput = function(conn) {
@@ -12,7 +14,35 @@ const setupInput = function(conn) {
   return stdin;
 };
 
+let func;
+
 const handleUserInput = (key) => {
   const stdout = process.stdout;
+  const interval = function(key) {
+    func = setInterval(() => {
+      connection.write(key);
+    }, 100);
+  };
+  if (key === '\u0003') {
+    stdout.write("Exited snek game. Bye bye.\n");
+    process.exit();
+  }
+  if (key === 'w') {
+    clearInterval(func);
+    interval(UPKEY);
+  }
+  if (key === 'a') {
+    clearInterval(func);
+    interval(LEFTKEY);
+  }
+  if (key === 's') {
+    clearInterval(func);
+    interval(DOWNKEY);
+  }
+  if (key === 'd') {
+    clearInterval(func);
+    interval(RIGHTKEY);
+ }
+};
 
 module.exports = { setupInput };
