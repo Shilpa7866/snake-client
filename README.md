@@ -9,6 +9,10 @@ Before you can run this client, you will need to be running the server side whic
 
 https://github.com/lighthouse-labs/snek-multiplayer
 
+PURPOSE:
+--------
+This project is made by Shilpa Pulipati as a part of Lighthouse Labs Web Development Flex Program.
+
 
 INSTRUCTIONS:
 -------------
